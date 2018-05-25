@@ -13,7 +13,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(async (ctx, next) => {
-  console.log(ctx.request.ips)
+  console.log(ctx.request.ip)
 
   ctx.body =ctx.request.ip
 
