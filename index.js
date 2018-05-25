@@ -5,18 +5,17 @@ const app = new Koa();
 
 app.proxy =true;
 
-app.use(async (ctx, next) => {
-  if(ctx.request.path === '/favicon.ico') {
-    return;
-  }
-  next();
-})
+// app.use(async (ctx, next) => {
+//   if(ctx.request.path === '/favicon.ico') {
+//     return;
+//   }
+//   next();
+// })
 
 app.use(async (ctx, next) => {
-  console.log(ctx.request.ip)
+  console.log(ctx.req.connection.remoteAddress)
 
-  ctx.body =ctx.request.ip
-
+  ctx.body = ctx.req.connection.remoteAddress;
 });
 
 app.listen(PORT, () => {
