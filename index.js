@@ -24,7 +24,6 @@ app.use(async (ctx, next) => {
   try{
     const operating_system = await systemParse(headers);
 
-    console.log(operating_system)
     response.operating_system = operating_system;
   } catch (e) {
     response.operating_system = '';
@@ -68,6 +67,5 @@ const systemParse = async headers => {
  */
 const increaseOrThrow = len => num => {
   if(num > len) throw new Error(`You have increased beyond the given length`);
-  console.log(num)
   return num + 1;
 }
